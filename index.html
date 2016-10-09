@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<style>
+		body{
+			font-family: Impact;
+			background-color: #D1CCDC;
+		}
+		
+		#Add{
+			font-size: 20px;
+			color: white;
+			background-color: #424C55;
+			width: 80px;
+			height: 50px;
+			border: solid 2px black;
+			border-radius: 10px;
+		}
+		
+		#usr_input
+		{
+			width: 10px;
+			position: fixed;	
+			left: 100px;
+			top: 5px;
+		}
+		
+		#clear{
+			font-size: 18px;
+			width: 150px;
+			height: 50px;
+			color: white;
+			background-color: #424C55;
+			border: solid 1px black;
+			border-radius: 5px
+		}
+		
+		#addBut{
+			position: fixed;
+		}
+		
+		#hide{
+			width:200px;
+			position: fixed;
+			right: -200px;
+			top: 10px;
+			transition: right 0.5s; 
+		}
+	</style>
+	<body>
+		<div id="addBut">
+			<button id="Add">Add</div>
+		</div>
+		<div id= "usr_input">
+			<input type = "text" placeholder = "Enter Title" id = "msgH3" class="msg"/>
+			<input type = "text" placeholder = "Enter Img Url" id = "msgImg" class="msg"/>
+			<input type = "text" placeholder = "Enter Descriptions" id = "msgDiv" class="msg"/>
+		</div>
+		<div id="hide">
+			<button id="clear">Hide Description</button>
+		</div>
+		<script>
+			var save = document.getElementById("Add");
+			var intH3 = document.getElementById("msgH3");
+			var intImg = document.getElementById("msgImg");
+			var usrmsgDiv = document.getElementById("msgDiv");
+			var clearBut = document.getElementById("clear");
+			
+			
+			save.onclick = function(){
+				
+				hide.style.right = "-44px";
+				
+				var mainDiv = document.createElement("div");
+				document.body.appendChild(mainDiv);
+				mainDiv.style.width = "1200px";
+				mainDiv.style.height = "200px";
+				mainDiv.style.top = "80px";
+				mainDiv.style.left = "19%";
+				mainDiv.style.position = "relative";
+				mainDiv.style.border = "solid 1px black";
+				mainDiv.style.backgroundColor = "#F5EDF0";
+				
+				var newImg = document.createElement("img");
+				newImg.src = intImg.value;
+				newImg.className = "imgthumb";
+				newImg.style.marginTop = "25px";
+				newImg.style.marginLeft = "30px";
+				newImg.style.height = "150px";
+				newImg.style.width = "150px";
+				mainDiv.appendChild(newImg);
+				
+				var newText = document.createElement("h3");
+				newText.innerHTML = intH3.value;
+				newText.style.marginTop = "-160px";
+				newText.style.marginLeft = "220px";
+				newText.style.fontSize = "30px";
+				mainDiv.appendChild(newText);
+				
+				var divText = document.createElement("div");
+				divText.innerHTML = usrmsgDiv.value;
+				divText.style.marginTop = "20px";
+				divText.style.marginLeft = "220px";
+				newText.style.fontSize = "30px";
+				mainDiv.appendChild(divText);
+				
+				clearBut.onclick = function(){
+					divText.innerHTML = "";
+				}
+			}
+		</script>
+	</body>
+</html>
